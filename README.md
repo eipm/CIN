@@ -8,7 +8,7 @@
 
 Non-invasive prediction of response to neoadjuvant chemotherapy using the preNAC algorithm. The preNAC algorithm is a method based on **GoogLeNet** [[1]](#1) architecture which is trained using MRI images obtained from [**TCIA**](https://wiki.cancerimagingarchive.net/display/Public/Breast-MRI-NACT-Pilot) [[2]](#2) [[3]](#3). 
 
-![cin Logo](Images/cin.png)
+![cin Logo](Image/cin.png)
 
 
 The algorithm classify :heavy_plus_sign: & :heavy_minus_sign: response to NAC in :womens: breast cancer using one of the A:eye: mathods.
