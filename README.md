@@ -1,14 +1,14 @@
 # Predict Chromosomal Instability Status (CIN) from Histopathology Images
 
 
-[![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/downloads/release/python-2715/)
-[![TensorFlow 1.7](https://img.shields.io/badge/TF-1.7-orange.svg)](https://www.tensorflow.org/install/source)
+[![Python 3.2](https://img.shields.io/badge/python-3-blue.svg)](https://www.python.org/downloads/release/python-2715/)
+[![TensorFlow 2](https://img.shields.io/badge/TF-2-orange.svg)](https://www.tensorflow.org/install/source)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 
 Non-invasive prediction of response to neoadjuvant chemotherapy using the preNAC algorithm. The preNAC algorithm is a method based on **GoogLeNet** [[1]](#1) architecture which is trained using MRI images obtained from [**TCIA**](https://wiki.cancerimagingarchive.net/display/Public/Breast-MRI-NACT-Pilot) [[2]](#2) [[3]](#3). 
 
-![preNAC Logo](Images/cin.png)
+![cin Logo](Images/cin.png)
 
 
 The algorithm classify :heavy_plus_sign: & :heavy_minus_sign: response to NAC in :womens: breast cancer using one of the A:eye: mathods.
