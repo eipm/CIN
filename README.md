@@ -11,7 +11,7 @@ Non-invasive prediction of response to neoadjuvant chemotherapy using the preNAC
 ![cin Logo](Image/cin.png)
 
 
-The algorithm classify :heavy_plus_sign: & :heavy_minus_sign: response to NAC in :womens: breast cancer using one of the A:eye: mathods.
+The algorithm classify :heavy_plus_sign: & :heavy_minus_sign: response to NAC in :womens: breast cancer using one of the A:eye: methods.
 
 To run the preNAC framework please follow these steps:
 
