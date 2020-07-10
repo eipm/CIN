@@ -1,1 +1,1 @@
-code for cin score calculation
+code for genome cin score calculation
