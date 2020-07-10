@@ -5,6 +5,9 @@
 [![TensorFlow 2](https://img.shields.io/badge/TF-2-orange.svg)](https://www.tensorflow.org/install/source)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+Hi Karen! This is just a sample for your "Readme". Please substitute your method steps with the below one. I just added this part to make it easier for you.
+
+
 The CIN algorithm is a method based on **GoogLeNet** [[1]](#1) architecture which is trained using MRI images obtained from [**TCIA**](https://wiki.cancerimagingarchive.net/display/Public/Breast-MRI-NACT-Pilot) [[2]](#2) [[3]](#3). 
 
 ![cin Logo](Image/cin.png)
