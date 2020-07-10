@@ -1,19 +1,27 @@
 # Image Preprocessing
 # 
 # %%
-import numpy as np
+import openslide
+from openslide.deepzoom import *
+import sys,os
+from os import listdir
+from os import walk
 import pandas as pd
-import random as rand
+import re
+import numpy as np
 from itertools import compress
+import matplotlib.pyplot as plt
+import random as rand
 import skimage
 from skimage import io,feature, filters,color
 from skimage.exposure import rescale_intensity
-import re
-import os
-import shutil
-import matplotlib.pyplot as plt 
-import tensorflow as tf
+import scipy.misc
+import matplotlib.image as mpimg
+import imageio.freeze
 import histomicstk as htk
+import shutil
+import cv2
+from skimage.transform import resize
 
 
 # %%
