@@ -5,8 +5,7 @@
 [![TensorFlow 2](https://img.shields.io/badge/TF-2-orange.svg)](https://www.tensorflow.org/install/source)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-
-Non-invasive prediction of response to neoadjuvant chemotherapy using the preNAC algorithm. The preNAC algorithm is a method based on **GoogLeNet** [[1]](#1) architecture which is trained using MRI images obtained from [**TCIA**](https://wiki.cancerimagingarchive.net/display/Public/Breast-MRI-NACT-Pilot) [[2]](#2) [[3]](#3). 
+The CIN algorithm is a method based on **GoogLeNet** [[1]](#1) architecture which is trained using MRI images obtained from [**TCIA**](https://wiki.cancerimagingarchive.net/display/Public/Breast-MRI-NACT-Pilot) [[2]](#2) [[3]](#3). 
 
 ![cin Logo](Image/cin.png)
 
