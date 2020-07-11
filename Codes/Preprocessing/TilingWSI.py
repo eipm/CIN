@@ -32,12 +32,7 @@ def filtering(rgb,thresh_min):
     binary_min = rgb > thresh_min
     return np.sum(binary_min)/float(binary_min.size)
 
-### RGB to HED space. Choose higher H
-def HED_filter(rgbimage,threshold=0.5):
-    hedimg=color.rgb2hed(rgbimage)[:,:,0]
-    h = rescale_intensity(hedimg, out_range=(0, 1))
-    h[h < threshold]=0
-    return 2*np.sum(h)/h.size
+
 
 
 # %%
@@ -59,16 +54,16 @@ def HED_filter(rgbimage,threshold=0.5):
 #example: '/Image/WSI/'
 
 #---tilesize, overlap: dimension of output is tilesize+2*overlap
-#---low_mpp: target mpp. Default is 4 (2.5x magnification)
+#---low_mpp: Default is 8 (use 1.25x magnification to decide window location)
+#---change tilesize and overlap to decide the step of sliding window
 
 def tiling_wsi(slide_index, filepaths=filepaths, samplenames=samplenames,
-tile_dir=tile_dir_lowreso,tilesize=512,overlap=768,low_mpp=4,save=True):
+tile_dir=tile_dir_lowreso,tilesize=256,overlap=384,low_mpp=8,save=True):
     tile = [] #save output tile into list
     cell_pct_list = [0] #cell percentage
     h_score=[0]
     ij=[0] #memorize tile location
     slide = openslide.open_slide(filepaths[slide_index])
-    #high_mag=int(slide.properties['aperio.AppMag']) #max mag
     high_mpp=round(float(slide.properties['aperio.MPP']),2)
     data_gen = DeepZoomGenerator(slide, tile_size = tilesize, overlap = overlap)
     num_levels = data_gen.level_count #count levels
@@ -82,22 +77,28 @@ tile_dir=tile_dir_lowreso,tilesize=512,overlap=768,low_mpp=4,save=True):
             img = np.array(data_gen.get_tile(lowresolution_level, (i,j)))
             if img.shape[0]==img.shape[1]:
                 c_pct=filtering(img,40)
-                if c_pct>cell_pct_list[0] and c_pct<0.9:
+                if c_pct>cell_pct_list[0]: #and c_pct<0.9:
                     cell_pct_list[0]=c_pct
                     ij[0]=(i,j)
                     tile=img
-                if c_pct>=0.9:
-                    cell_pct_list[0]=c_pct
-                    H=HED_filter(img,0.5)
-                    if H>h_score[0]:
-                        h_score[0]=H
-                        ij[0]=(i,j)
-                        tile=img
+
+    if round(high_mpp*4)==1:
+        #get location
+        (i,j)=ij[0]
+        (l,t)=((i*256-384)*32,(j*256-384)*32)
+        img=slide.read_region((l,t),2,(2048,2048))
+        img=np.array(img)[:,:,:3]
+    else:
+        (i,j)=ij[0]
+        (l,t)=((i*256-384)*16,(j*256-384)*16)
+        img=slide.read_region((l,t),1,(4096,4096))
+        img=np.array(img)[:,:,:3]
+        img=resize(img,(2048,2048,3))
     #save jpg file
     if save==True:
-        imageio.imwrite(tile_dir + samplenames[slide_index] + '_'+str(ij[0][0])+'_'+str(ij[0][1])+'.jpg',tile) #---jpg file
+        imageio.imwrite(tile_dir + samplenames[slide_index] + '_'+str(ij[0][0])+'_'+str(ij[0][1])+'.jpg',img) #---jpg file
     else:
-        return(tile)
+        return(img)
     slide.close()
 
 
