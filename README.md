@@ -11,7 +11,7 @@ The CIN algorithm is a method based on **Densenet** [[1]](#1) architecture which
 ![cin Logo](Image/cin.png)
 
 
-The algorithm classify genome CIN+/CIN- based on H&E histology whole slide images (WSI)
+The algorithm classifies genome CIN+/CIN- based on H&E histology whole slide images (WSI)
 
 To run the CIN framework please follow these steps:
 
@@ -45,6 +45,15 @@ You need to define two *list* objects ahead:  *filepaths* and *samplenames*. Als
 #### Crop WSI
 
 ![cropwsi](Image/WSIcropping.png)
+
+Use the function of **WSIcropping** to crop input images into 8x8 nonoverlapping grids and save patches into target location. You can set up a tissue percentage threshold for QC. This function outputs patches and organize them in the structure of one folder per patient. Please refer to '/Image/Patch/'
+
+`inputdir : input directory. example: /Image/WSI/`
+
+`targetdir : target directory. example: /Image/Patch/`
+
+`pct : tissue percentage threshold. Default is 80%`
+
 
 ###   **Feature Extraction**
 
