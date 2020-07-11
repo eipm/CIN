@@ -15,13 +15,17 @@ The algorithm classifies genome CIN+/CIN- based on H&E histology whole slide ima
 
 To run the CIN framework please follow these steps:
 
-###   **Software:** 
+###   **Software** 
 
 Install the following softwares used in this project:
 
 *TensorFlow2*: Follow the instruction from here: https://www.tensorflow.org/install/
 
 *OpenSlide*： Python version. See more details here: https://openslide.org/
+
+###   **Genome CIN Score** 
+
+See codes for genome CIN score calculation at '/Codes/Genome CIN/CIN_SCORE_CALCULATION.R'
 
 ###   **Image Preprocessing**
 
@@ -57,61 +61,22 @@ Use the function of **WSIcropping** to crop input images into 8x8 nonoverlapping
 
 ###   **Feature Extraction**
 
-:four:  
+See codes at '/Codes/Feature Extraction/FeatureExtraction.py'
 
-:five: 
-
-```bash
-python convert.py ../Images/train process/ 0
-```
-
-The convert.py needs three arguments including: 
-
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `../Images/train` :arrow_right: `the address of images for training`
-
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `process/` :arrow_right: `the address of where the result will be located`
-
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `0` :arrow_right: `the percentage of validation images for the training step `
-
-:writing_hand: Keep the percentage of validation images as 0 because we set 15% for validation inside the code.
-
-:writing_hand: It will save converted .tf records in the "process" directory, so make sure the "process" folder is empty before running.
-
-
-:six: The Inception-V1 architecture should be run on the train set images from the "Breast_MRI_NAC/scripts/slim" directory. First go to the the "Breast_MRI_NAC/scripts/slim" directory. You can change the parameters (e.g. batch_size, optimizer, and learning_rate) of the "load_inception_v1.sh" file that is located in "run/" directory. Then, run the following command in shell script: 
+First, set lab reference for color normalization. 
 
 ```bash
-./run/load_inception_v1.sh
+ref_img_path='/Image/WSI/IMAGE_NAME.jpg'
 ```
 
-:writing_hand: If you got the bash error like permission denied, run the following line in your shell:
+Use the function of **Densenet121_extractor** to extract patient level features from cropped patches of last step stored in '/Image/Patch'. You need to organize a pandas DataFrame (WSI_df) to store the patient information including patch location and CIN score that will be used as labels after. A sample dataframe can be found in '/File/WSI_df.csv'. This function will automatically conduct color normalization. 
 
-```bash
-chmod 777 load_inception_v1.sh
-```
+`WSI_df : a pandas dataframe with all patients' patches will be extracted, should contain column of Barcode_Path with all the paths of patients' folder. example: /Image/Patch/TCGA-3C-AALJ`
 
-:writing_hand: Each script in slim dataset should be run separately based on the selected architecture. The slim folder contains some sub-folders. 
-
-:writing_hand: You can set up the parameters of each architectures in the run sub-folder. For example you can set the architecture in a way to run from scratch or trained for the last or all layer. Also you can set the batch size or the number of maximum steps. 
-
-:writing_hand: You can see the "result" folder at "script/result" as the result of running the above script. So, make sure the "result" folder is empty before running.
-
-:seven: The trained algorithms should be tested using test set images. In folder "Breast_MRI_NAC/script/slim", predict.py loads a trained model on provided images. This code get 5 argu/resultments:
-
-```bash
-python predict.py v1 ../result/ ../../Images/test output.txt 2
-```
+`target : target path of patient level features to be stored. example: '/Bottlenect_Features/features_densenet121.npy'`
 
 
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `v1` :arrow_right: `inception-v1`
 
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `../result/` :arrow_right: `the address of trained model`
-
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `../Images/test` :arrow_right: `the address of test set images`
-
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `output.txt` :arrow_right: `the output result file`
-
-![#ffdce0](https://via.placeholder.com/10/ffdce0/000000?text=+) `2` :arrow_right: `number of classes`
 
 
 
@@ -123,12 +88,10 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR).
 DOI :10.1109/CVPR.2017.243.
 
 <a id="2">[2]</a> 
-@inproceedings{imagenet_cvpr09,
-        AUTHOR = {Deng, J. and Dong, W. and Socher, R. and Li, L.-J. and Li, K. and Fei-Fei, L.},
-        TITLE = {{ImageNet: A Large-Scale Hierarchical Image Database}},
-        BOOKTITLE = {CVPR09},
-        YEAR = {2009},
-        BIBSOURCE = "http://www.image-net.org/papers/imagenet_cvpr09.bib"}
+Deng, J. et al. (2009).
+ImageNet: A Large-Scale Hierarchical Image Database.
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR).
+http://www.image-net.org/papers/imagenet_cvpr09.bib
 
 <a id="3">[3]</a> 
 Newitt, D. et al. (2016). 
