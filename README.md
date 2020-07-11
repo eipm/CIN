@@ -44,6 +44,8 @@ You need to define two *list* objects ahead:  *filepaths* and *samplenames*. Als
 
 #### Crop WSI
 
+![cropwsi](Image/WSIcropping.png)
+
 ###   **Feature Extraction**
 
 :four:  
