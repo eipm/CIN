@@ -15,7 +15,7 @@ The algorithm classify genome CIN+/CIN- based on H&E histology whole slide image
 
 To run the CIN framework please follow these steps:
 
-:one:   **Software:** 
+###   **Software:** 
 
 Install the following softwares used in this project:
 
@@ -23,11 +23,11 @@ Install the following softwares used in this project:
 
 *OpenSlide*： Python version. See more details here: https://openslide.org/
 
-:two:   **Image Preprocessing**
+###   **Image Preprocessing**
 
 See codes under the folder '/Codes/Preprocessing'
 
-1. Tile WSI
+#### Tile WSI
 
 Use the function of **tiling_wsi** to get the best WSI from raw svs file.
 
@@ -42,8 +42,9 @@ You need to define two *list* objects ahead:  *filepaths* and *samplenames*. Als
 `tile_dir : location to store WSI. For example: '/Image/WSI/'`
 
 
-2. Crop WSI
-:three:   **Feature Extraction**
+#### Crop WSI
+
+###   **Feature Extraction**
 
 :four:  
 
