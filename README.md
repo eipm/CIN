@@ -15,17 +15,21 @@ The algorithm classify genome CIN+/CIN- based on H&E histology whole slide image
 
 To run the CIN framework please follow these steps:
 
-:one: Install the TensorFlow. Follow the instruction from here: https://www.tensorflow.org/install/
+:one:  **Software:** 
 
-:writing_hand: We use TensorFlow V1 in this project.
+Install the following softwares used in this project:
 
-:two: Pre-trained Models of CNN architectures should be downloaded from the "Pre-trained Models" part of https://github.com/wenwei202/terngrad/tree/master/slim#pre-trained-models and be located in your machine (e.g. Breast_MRI_NAC/script/slim/run/checkpoint). The files for pre-trained models (e.g. inception_v1.ckpt) are available under the column named "checkpoint".
+*TensorFlow2* Follow the instruction from here: https://www.tensorflow.org/install/
 
-:three: Divide the images with the original size into two or more classes based on the aim of classification (e.g., classification of BR-P-NAC and BR-N-NAC). 85% of images in each class will be selected as Train set (train and validation) and 15% for Test set. 
+*OpenSlide* Python version. See more details here: https://openslide.org/
 
-:four: _NUM_CLASSES should be set in MRI.py (this script is located in Breast_MRI_NAC/script/slim/datasets).
+:two: 
 
-:five: Run the convert.py (it is located in the "Breast_MRI_NAC/script" directory) to allocate the suitable percentage of images to train and validation sets. 
+:three: 
+
+:four: 
+
+:five: 
 
 ```bash
 python convert.py ../Images/train process/ 0
