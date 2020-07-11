@@ -11,9 +11,9 @@ The CIN algorithm is a method based on **Densenet** [[1]](#1) architecture which
 ![cin Logo](Image/cin.png)
 
 
-The algorithm classify :heavy_plus_sign: & :heavy_minus_sign: response to NAC in :womens: breast cancer using one of the A:eye: methods.
+The algorithm classify genome CIN+/CIN- based on H&E histology whole slide images (WSI)
 
-To run the preNAC framework please follow these steps:
+To run the CIN framework please follow these steps:
 
 :one: Install the TensorFlow. Follow the instruction from here: https://www.tensorflow.org/install/
 
