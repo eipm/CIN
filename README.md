@@ -25,8 +25,24 @@ Install the following softwares used in this project:
 
 :two:   **Image Preprocessing**
 
+See codes under the folder '/Codes/Preprocessing'
+
+1. Tile WSI
+
+Use the function of **tiling_wsi** to get the best WSI from raw svs file.
+
+The default setting will get WSI on 2.5x magnification with dimension of 2048x2048. Through setting *tilesize* and *overlap* can change the fine grade of sliding windowns.
+
+You need to define two *list* objects ahead:  *filepaths* and *samplenames*. Also set the argument of *tile_dir* for the location to store WSI.
+
+`filepaths : list of svs file paths`
+
+`samplenames : list of sample names with the same order of filepaths. For example: 'TCGA-A1-A0SE-01Z-00-DX1.04B09232-C6C4-46EF-AA2C-41D078D0A80A'`
+
+`tile_dir : location to store WSI. For example: '/Image/WSI/'`
 
 
+2. Crop WSI
 :three:   **Feature Extraction**
 
 :four:  
