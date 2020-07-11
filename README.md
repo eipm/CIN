@@ -1,14 +1,12 @@
-# Predict Chromosomal Instability Status (CIN) from Histopathology Images
+## Predict Chromosomal Instability Status (CIN) from Histopathology Images
 
 
 [![Python 3.2](https://img.shields.io/badge/python-3-blue.svg)](https://www.python.org/downloads/release/python-2715/)
 [![TensorFlow 2](https://img.shields.io/badge/TF-2-orange.svg)](https://www.tensorflow.org/install/source)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-Hi Karen! This is just a sample for your "Readme". Please substitute your method steps with the below one. I just added this part to make it easier for you.
 
-
-The CIN algorithm is a method based on **GoogLeNet** [[1]](#1) architecture which is trained using MRI images obtained from [**TCIA**](https://wiki.cancerimagingarchive.net/display/Public/Breast-MRI-NACT-Pilot) [[2]](#2) [[3]](#3). 
+The CIN algorithm is a method based on **Densenet** [[1]](#1) architecture which is pre-trained using ImageNet images [[2]](#2).
 
 ![cin Logo](Image/cin.png)
 
@@ -85,16 +83,18 @@ python predict.py v1 ../result/ ../../Images/test output.txt 2
 
 ## References
 <a id="1">[1]</a> 
-Szegedy, C. et al. (2015). 
-Going deeper with convolutions.
+Huang, G. et al. (2017). 
+Densely Connected Convolutional Networks.
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). 
-DOI :10.1109/cvpr.2015.7298594.
+DOI :10.1109/CVPR.2017.243.
 
 <a id="2">[2]</a> 
-Clark, K. et al. (2013). 
-The Cancer Imaging Archive (TCIA): Maintaining and Operating a Public Information Repository.
-Journal of Digital Imaging. 
-DOI :10.1007/s10278-013-9622-7.
+@inproceedings{imagenet_cvpr09,
+        AUTHOR = {Deng, J. and Dong, W. and Socher, R. and Li, L.-J. and Li, K. and Fei-Fei, L.},
+        TITLE = {{ImageNet: A Large-Scale Hierarchical Image Database}},
+        BOOKTITLE = {CVPR09},
+        YEAR = {2009},
+        BIBSOURCE = "http://www.image-net.org/papers/imagenet_cvpr09.bib"}
 
 <a id="3">[3]</a> 
 Newitt, D. et al. (2016). 
