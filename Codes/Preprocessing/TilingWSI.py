@@ -87,7 +87,6 @@ tile_dir=tile_dir_lowreso,tilesize=256,overlap=384,low_mpp=8,save=True):
         (l,t)=((i*256-384)*32,(j*256-384)*32)
         img=slide.read_region((l,t),2,(2048,2048))
         img=np.array(img)[:,:,:3]
-        img=img/255
     else:
         (i,j)=ij[0]
         (l,t)=((i*256-384)*16,(j*256-384)*16)
