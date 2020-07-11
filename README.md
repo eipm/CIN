@@ -61,6 +61,8 @@ Use the function of **WSIcropping** to crop input images into 8x8 nonoverlapping
 
 ###   **Feature Extraction**
 
+![featureextract](Image/feature_extract.png)
+
 See codes at '/Codes/Feature Extraction/FeatureExtraction.py'
 
 First, set lab reference for color normalization. 
