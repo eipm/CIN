@@ -10,6 +10,7 @@ from skimage import io,feature, filters,color
 from skimage.exposure import rescale_intensity
 import re
 import os
+import imageio
 import shutil
 import matplotlib.pyplot as plt 
 import tensorflow as tf
