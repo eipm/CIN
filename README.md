@@ -15,19 +15,21 @@ The algorithm classify genome CIN+/CIN- based on H&E histology whole slide image
 
 To run the CIN framework please follow these steps:
 
-:one:  **Software:** 
+:one:   **Software:** 
 
 Install the following softwares used in this project:
 
-*TensorFlow2* Follow the instruction from here: https://www.tensorflow.org/install/
+*TensorFlow2*: Follow the instruction from here: https://www.tensorflow.org/install/
 
-*OpenSlide* Python version. See more details here: https://openslide.org/
+*OpenSlide*： Python version. See more details here: https://openslide.org/
 
-:two: 
+:two:   **Image Preprocessing**
 
-:three: 
 
-:four: 
+
+:three:   **Feature Extraction**
+
+:four:  
 
 :five: 
 
