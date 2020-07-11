@@ -29,6 +29,8 @@ See codes under the folder '/Codes/Preprocessing'
 
 #### Tile WSI
 
+![tiling_wsi](Image/tiling_wsi.png)
+
 Use the function of **tiling_wsi** to get the best WSI from raw svs file. The default setting will get WSI on 2.5x magnification with dimension of 2048x2048. Through setting *tilesize* and *overlap* can change the step size of sliding windows.
 
 You need to define two *list* objects ahead:  *filepaths* and *samplenames*. Also set the argument of *tile_dir* for the location to store WSI.
