@@ -61,7 +61,6 @@ def tiling_wsi(slide_index, filepaths=filepaths, samplenames=samplenames,
 tile_dir=tile_dir_lowreso,tilesize=256,overlap=384,low_mpp=8,save=True):
     tile = [] #save output tile into list
     cell_pct_list = [0] #cell percentage
-    h_score=[0]
     ij=[0] #memorize tile location
     slide = openslide.open_slide(filepaths[slide_index])
     high_mpp=round(float(slide.properties['aperio.MPP']),2)
@@ -88,6 +87,7 @@ tile_dir=tile_dir_lowreso,tilesize=256,overlap=384,low_mpp=8,save=True):
         (l,t)=((i*256-384)*32,(j*256-384)*32)
         img=slide.read_region((l,t),2,(2048,2048))
         img=np.array(img)[:,:,:3]
+        img=img/255
     else:
         (i,j)=ij[0]
         (l,t)=((i*256-384)*16,(j*256-384)*16)
