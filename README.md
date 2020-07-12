@@ -94,7 +94,9 @@ WSI_df=pd.read_csv('/File/WSI_df.csv', sep=',',index_col=0).reset_index(drop=Tru
 features=np.load('/Bottleneck_Features/features_densenet121.npy')
 ```
 
-Run codes at '/Codes/MLP/MLP.py' and use function of **MLP_train** to train top MLP layers and save your model. You have to set up the following arguments:
+Run codes at '/Codes/MLP/MLP.py' and use function of **MLP_train** to train top MLP layers. The function will automatically save the best model along with *ID_train*, *ID_test*, *y_train* and *y_test* for furthur model evaluations.
+
+You need to set up the following arguments:
 
 `WSI_df: a dataframe of summarise file, the same one used in previous steps. make sure you have columns indicating label and patient ID`
 
