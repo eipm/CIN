@@ -84,7 +84,7 @@ Then, use the function of **Densenet121_extractor** to extract patient level fea
 
 ###   **MLP Training**
 
-Make sure you have loaded *WSI_df* (summarise DataFrame) and *features* (bottleneck features array) as shown below:
+Make sure you have loaded *WSI_df* (summarise DataFrame) and *features* (bottleneck features array) before training top MLP.
 
 ```bash
 #load summarise dataframe
@@ -93,6 +93,24 @@ WSI_df=pd.read_csv('/File/WSI_df.csv', sep=',',index_col=0).reset_index(drop=Tru
 #load bottleneck features array
 features=np.load('/Bottleneck_Features/features_densenet121.npy')
 ```
+
+Run codes at '/Codes/MLP/MLP.py' and use function of **MLP_train** to train top MLP layers and save your model. You have to set up the following arguments:
+
+`WSI_df: a dataframe of summarise file, the same one used in previous steps. make sure you have columns indicating label and patient ID`
+
+`features: patient level feature array. `
+
+`Label, ID: column names in WSI_df. example: ID='Barcode',Label='Cin_Label'`
+
+`testratio: percentage of test dataset, default is 0.15. You don't need to set validation dataset because the function will automatically split training and validation dataset as ratio of 0.85/0.15 after setting aside of hold-out test set.`
+
+`seed: used to split training and test dataset. default is 1001`
+
+`Model_Name: name to store the model, example: 'Model.h5'`
+
+`Learning parameters: layer_num,nodes_num_1,nodes_num_2,dropout,lr
+you can set up to 2 hidden layers. Too many hidden layers is not likely to have good performance by experiments. Use layer_num to set number of hidden layers.Use nodes_num_1 and nodes_num_2 to set nodes number of two hidden layers. Only set nodes_num_2 when layer_num=2. You can set up dropout and learning rate. default setting: dropout=0,lr=0.00001`
+
 
 ## References
 <a id="1">[1]</a> 
