@@ -29,7 +29,11 @@ from sklearn.model_selection import train_test_split
 #WSI_df: summarise file
 def feature_split(WSI_df,features,ID,Label,testratio,seed):
     X_train,X_test,y_train,y_test,ID_train,ID_test=train_test_split(features,list(WSI_df[Label]),list(WSI_df[ID]),test_size=testratio,random_state=seed)
-    #normalization
+    np.save('ID_train.npy',ID_train)
+    np.save('ID_test.npy',ID_test)
+    np.save('y_train.npy',y_train)
+    np.save('y_test.npy',y_test)
+    #scaling
     scaler = preprocessing.MinMaxScaler()
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
