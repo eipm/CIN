@@ -96,7 +96,7 @@ WSI_df=pd.read_csv('/File/WSI_df.csv', sep=',',index_col=0).reset_index(drop=Tru
 features=np.load('/Bottleneck_Features/features_densenet121.npy')
 ```
 
-Run codes at '/Codes/MLP/MLP.py' and use function of **MLP_train** to train top MLP layers. The function will automatically save the best model along with *ID_train*, *ID_test*, *y_train* and *y_test* for furthur model evaluations.
+Run codes at '/Codes/MLP/MLP.py' and use function of **MLP_train** to train top MLP layers. The function will automatically save the best model along with *ID_train*, *ID_test*, *y_train*, *y_test*, *X_train* and *X_test* for furthur model evaluations.
 
 You need to set up the following arguments:
 
@@ -114,6 +114,20 @@ You need to set up the following arguments:
 
 `Learning parameters: layer_num,nodes_num_1,nodes_num_2,dropout,lr
 you can set up to 2 hidden layers. Too many hidden layers is not likely to have good performance by experiments. Use layer_num to set number of hidden layers.Use nodes_num_1 and nodes_num_2 to set nodes number of two hidden layers. Only set nodes_num_2 when layer_num=2. You can set up dropout and learning rate. default setting: dropout=0,lr=0.00001`
+
+###   **Model Prediction and Evaluation**
+
+After tuning the hyperparameters from the last step and getting your final model. You can use load your saved model and make predictions and evaluate your model.
+
+```bash
+from tensorflow.keras.models import load_model
+import sklearn.metrics as metrics
+#make predictions
+model=load_model('Model.h5')
+y_pred=model.predict(X_test)
+#evaluate model accuracy:
+metrics.accuracy_score(y_true=y_test, y_pred=y_pred.round())
+```
 
 
 ## References
