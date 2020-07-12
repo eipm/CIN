@@ -78,6 +78,7 @@ Use the function of **Densenet121_extractor** to extract patient level features 
 `target : target path of patient level features to be stored. example: '/Bottlenect_Features/features_densenet121.npy'`
 
 
+###   **MLP Training**
 
 
 
@@ -94,9 +95,3 @@ Deng, J. et al. (2009).
 ImageNet: A Large-Scale Hierarchical Image Database.
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR).
 http://www.image-net.org/papers/imagenet_cvpr09.bib
-
-<a id="3">[3]</a> 
-Newitt, D. et al. (2016). 
-The Single site breast DCE-MRI data and segmentations from patients undergoing neoadjuvant chemotherapy.
-The Cancer Imaging Archive. 
-DOI :10.7937/K9/TCIA.2016.QHsyhJKy.
