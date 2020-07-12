@@ -37,7 +37,7 @@ Follow the steps below to tile WSI from svs file and crop WSI into multiple patc
 
 ![tilewsi](Image/tiling_wsi.png)
 
-Use the function of **tiling_wsi** to get the best WSI from raw svs file. The default setting will get WSI on 2.5x magnification with dimension of 2048px2048p. Through setting *tilesize* and *overlap* can change the step size of sliding windows.
+Use the function of **tiling_wsi** from **TilingWSI.py** to get the best WSI from raw svs file. The default setting will get WSI on 2.5x magnification with dimension of 2048px2048p. Through setting *tilesize* and *overlap* can change the step size of sliding windows.
 
 You need to define two *list* objects ahead:  *filepaths* and *samplenames*. Also set the argument of *tile_dir* for the location to store WSI.
 
@@ -52,7 +52,7 @@ You need to define two *list* objects ahead:  *filepaths* and *samplenames*. Als
 
 ![cropwsi](Image/WSIcropping.png)
 
-Use the function of **WSIcropping** to crop input images into 8x8 nonoverlapping grids and save patches into target location. You can set up a tissue percentage threshold for QC. This function outputs patches and organize them in the structure of one folder per patient. Please refer to '/Image/Patch/'
+Use the function of **WSIcropping** from **WSIcropping.py** to crop input images into 8x8 nonoverlapping grids and save patches into target location. You can set up a tissue percentage threshold for QC. This function outputs patches and organize them in the structure of one folder per patient. Please refer to '/Image/Patch/'
 
 `inputdir : input directory. example: /Image/WSI/`
 
@@ -63,7 +63,7 @@ Use the function of **WSIcropping** to crop input images into 8x8 nonoverlapping
 
 ###   **Feature Extraction**
 
-This step used transfer learning to extract patch features and aggregate into patient level features.
+This step used transfer learning to extract patch features and aggregate into patient level features. It will return a numpy array with dimension of n * 1024. n denotes number of patients.
 
 ![featureextract](Image/feature_extract.png)
 
@@ -96,7 +96,7 @@ WSI_df=pd.read_csv('/File/WSI_df.csv', sep=',',index_col=0).reset_index(drop=Tru
 features=np.load('/Bottleneck_Features/features_densenet121.npy')
 ```
 
-Run codes at '/Codes/MLP/MLP.py' and use function of **MLP_train** to train top MLP layers. The function will automatically save the best model along with *ID_train*, *ID_test*, *y_train*, *y_test*, *X_train* and *X_test* for furthur model evaluations.
+Run codes at '/Codes/MLP/MLP.py' and use function of **MLP_train** in **MLP.py** to train top MLP layers. The function will automatically save the best model along with *ID_train*, *ID_test*, *y_train*, *y_test*, *X_train* and *X_test* for furthur model evaluations.
 
 You need to set up the following arguments:
 
