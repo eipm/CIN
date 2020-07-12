@@ -117,7 +117,7 @@ you can set up to 2 hidden layers. Too many hidden layers is not likely to have 
 
 ###   **Model Prediction and Evaluation**
 
-After tuning the hyperparameters from the last step and getting your final model. You can use load your saved model and make predictions and evaluate your model.
+After tuning the hyperparameters from the last step and getting your final model. You can load your saved model and make predictions and evaluate your model.
 
 ```bash
 from tensorflow.keras.models import load_model
