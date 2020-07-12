@@ -84,7 +84,9 @@ Then, use the function of **Densenet121_extractor** to extract patient level fea
 
 ###   **MLP Training**
 
-Make sure you have loaded *WSI_df* (summarise DataFrame) and *features* (bottleneck features array) before training top MLP.
+![MLP](Image/MLP_train.png)
+
+This is the last step to train your final model. Make sure you have loaded *WSI_df* (summarise DataFrame) and *features* (bottleneck features array) before training top MLP.
 
 ```bash
 #load summarise dataframe
