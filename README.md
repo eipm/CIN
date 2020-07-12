@@ -79,13 +79,20 @@ Then, use the function of **Densenet121_extractor** to extract patient level fea
 
 `WSI_df : a pandas dataframe. All patients' patches' in the dataframe will be extracted and aggregated. It should contain a column with name of 'Barcode_Path' to store the paths of patients' folder. All patch images are stored under this folder. example: /Image/Patch/TCGA-3C-AALJ`
 
-`target : target path of patient level features to be stored. example: '/Bottlenect_Features/features_densenet121.npy'`
+`target : target path of patient level features to be stored. example: '/Bottleneck_Features/features_densenet121.npy'`
 
 
 ###   **MLP Training**
 
+Make sure you have loaded *WSI_df* (summarise DataFrame) and *features* (bottleneck features array) as shown below:
 
+```bash
+#load summarise dataframe
+WSI_df=pd.read_csv('/File/WSI_df.csv', sep=',',index_col=0).reset_index(drop=True)
 
+#load bottleneck features array
+features=np.load('/Bottleneck_Features/features_densenet121.npy')
+```
 
 ## References
 <a id="1">[1]</a> 
