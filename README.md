@@ -8,7 +8,7 @@
 
 The CIN algorithm is a method based on **Densenet** [[1]](#1) architecture which is pre-trained using ImageNet images [[2]](#2).
 
-![cin Logo](Image/cin.png)
+![cin Logo](Image/cinlogo.png)
 
 
 The algorithm classifies genome CIN+/CIN- based on H&E histology whole slide images (WSI)
